@@ -1,0 +1,78 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.form {
+  @include flex-col;
+  gap: 1rem;
+
+  width: 100%;
+  max-width: 44rem;
+  padding-top: 3rem;
+  margin: 0 auto;
+
+  &__item {
+    display: grid;
+    grid-template: 1fr 0.7fr / 1fr 3.5fr;
+    align-items: center;
+
+    &:last-child {
+      display: flex;
+      justify-content: flex-end;
+      gap: 3rem;
+    }
+  }
+
+  &__input {
+    font-size: $font-size-secondary;
+
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+
+    border: 0.2rem solid $color-secondary;
+    border-radius: $border-radius-formInput;
+
+    &::placeholder {
+      color: darken($color-main, 30%);
+    }
+
+    &:focus {
+      background-color: lighten($border-color-formInput, 40%);
+      border: 0.2rem solid $border-color-formInput--hover;
+    }
+  }
+
+  &__button {
+    font-weight: weight(bold);
+    padding: 0.8rem 3rem;
+    border: 0.1rem solid $color-tertiary;
+    border-radius: $border-radius-main;
+
+    &--cancel {
+      color: $color-tertiary;
+      background-color: transparent;
+
+      &:hover {
+        color: $color-secondary;
+        background-color: $color-buttonClose;
+        border-color: $color-buttonClose;
+      }
+    }
+
+    &--confirm {
+      color: $color-main;
+      background-color: $color-tertiary;
+
+      &:hover {
+        background-color: $color-tertiary--hover;
+        border-color: $color-tertiary--hover;
+      }
+    }
+  }
+}
+
+.error-text {
+  font-weight: weight(semi-bold);
+  color: $color-tertiary;
+  grid-column: 1 / -1;
+}

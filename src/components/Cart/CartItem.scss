@@ -1,0 +1,54 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.cart-item {
+  @include flex-sb-c;
+  padding: 2rem 0;
+  font-weight: weight(medium);
+  border-bottom: 0.2rem solid $color-tertiary;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__title {
+    font-weight: weight(bold);
+    font-size: $font-size-h3;
+  }
+
+  &__summary {
+    @include flex-c;
+  }
+
+  &__price {
+    font-size: $font-size-foodPrice;
+    color: $color-tertiary;
+  }
+
+  &__amount {
+    padding-left: 1.5rem;
+    font-size: $font-size-foodPrice;
+    font-weight: weight(semi-bold);
+  }
+
+  &__actions {
+    @include flex-col;
+    gap: 1rem;
+  }
+
+  &__button {
+    padding: 0 2rem;
+
+    font-size: $font-size-foodPrice;
+    color: $color-tertiary;
+
+    border: 0.1rem solid $color-fourth;
+    border-radius: $border-radius-main;
+    background-color: transparent;
+
+    &:hover {
+      color: $color-main;
+      background-color: $color-fourth;
+    }
+  }
+}

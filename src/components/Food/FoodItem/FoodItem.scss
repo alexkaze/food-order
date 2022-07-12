@@ -1,0 +1,25 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.food {
+  @include flex-sb-c;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+
+  &__title {
+    font-size: $font-size-h3;
+    margin: 0 0 0.25rem 0;
+  }
+
+  &__description {
+    font-weight: weight(medium);
+    font-style: italic;
+  }
+
+  &__price {
+    margin-top: 1rem;
+    font-weight: weight(bold);
+    font-size: $font-size-foodPrice;
+    color: $color-tertiary;
+  }
+}

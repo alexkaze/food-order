@@ -1,0 +1,57 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.header {
+  &__button {
+    @include flex-sb-c;
+    gap: 1.5rem;
+    padding: 1.2rem 3.5rem;
+
+    font-size: $font-size-secondary;
+
+    background-color: $background-color-headerButton;
+    border-radius: $border-radius-main;
+
+    &:hover {
+      background-color: $background-color-headerButton--hover;
+    }
+  }
+
+  &__button-count {
+    width: 5rem;
+    background-color: $color-fourth;
+    border-radius: $border-radius-main;
+    transition: background-color 0.2s ease;
+  }
+
+  &__button:hover .header__button-count {
+    background-color: $color-fourth--hover;
+  }
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.bump {
+  animation: bump 300ms ease-out;
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.9);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

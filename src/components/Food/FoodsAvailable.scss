@@ -1,0 +1,37 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.foods-list {
+  @include flex-col;
+  gap: 3.5rem;
+  padding: 2rem;
+  color: $color-secondary;
+  list-style: none;
+
+  animation: meals-appear 1s ease-out forwards;
+}
+
+@keyframes meals-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.food-error {
+  font-size: $font-size-tertiary;
+  font-weight: weight(semi-bold);
+  color: $color-tertiary;
+  text-align: center;
+}
+
+.food-loading {
+  font-size: $font-size-tertiary;
+  color: $color-secondary;
+  text-align: center;
+}

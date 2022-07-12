@@ -1,0 +1,28 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.summary {
+  @include flex-c-col;
+  gap: 1rem;
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: 2rem;
+
+  text-align: center;
+
+  background-color: $background-color-summary;
+  border-radius: $border-radius-card;
+  box-shadow: $box-shadow-summary;
+
+  position: relative;
+
+  &__title {
+    margin-bottom: 1rem;
+    font-size: $font-size-h2;
+  }
+
+  &__text {
+    font-size: $font-size-secondary;
+    font-weight: weight(regular);
+  }
+}

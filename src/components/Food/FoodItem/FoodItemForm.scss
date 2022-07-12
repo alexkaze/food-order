@@ -1,0 +1,36 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.item-form {
+  @include flex-c;
+  gap: 2rem;
+
+  &__item {
+    @include flex-c-col;
+    gap: 0.3rem;
+  }
+
+  &__input {
+    max-width: 7rem;
+    padding: 0.2rem 1rem;
+    text-align: center;
+
+    border: 0.2rem solid $border-color-formInput;
+    border-radius: $border-radius-formInput;
+
+    &:focus {
+      border-color: $border-color-formInput--hover;
+    }
+  }
+
+  &__button {
+    padding: 0.8rem 4rem;
+    color: $color-main;
+    background-color: $color-fourth;
+    border-radius: $border-radius-formButton;
+
+    &:hover {
+      background-color: $color-fourth--hover;
+    }
+  }
+}

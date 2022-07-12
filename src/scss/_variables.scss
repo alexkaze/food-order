@@ -1,0 +1,60 @@
+// Fonts
+$font-family: 'Montserrat', sans-serif;
+$font-size: 1.6rem;
+$font-size-secondary: 1.8rem;
+$font-size-tertiary: 2rem;
+$font-size-h1: 4rem;
+$font-size-h2: 3.4rem;
+$font-size-h3: 2.3rem;
+$font-size-cartTotal: 2.8rem;
+$font-size-foodPrice: 2rem;
+
+$font-weight: (
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semi-bold': 600,
+  'bold': 700,
+);
+
+@function weight($weight) {
+  @return map-get($font-weight, $weight);
+}
+
+// Colors
+$color-main: #fff;
+$color-secondary: #000;
+$color-tertiary: #9b1c1c;
+$color-tertiary--hover: #791515;
+$color-fourth: #b83d10;
+$color-fourth--hover: #92320c;
+
+$color-success: rgb(0, 128, 0);
+
+$color-buttonClose: #919191;
+
+$background-color-page: #797979;
+$background-color-cartList: #eee;
+$background-color-backdrop: rgba(0, 0, 0, 0.75);
+$background-color-headerButton: #610c0c;
+$background-color-headerButton--hover: #490909;
+$background-color-summary: #383838;
+
+$border-color-formInput: #d15c31;
+$border-color-formInput--hover: #92320c;
+
+// UI
+$border-radius-main: 2.5rem;
+$border-radius-card: 1.4rem;
+$border-radius-formButton: 2rem;
+$border-radius-formInput: 0.5rem;
+
+$box-shadow-main: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.25);
+$box-shadow-summary: 0 1.8rem 1rem rgba(0, 0, 0, 0.25);
+
+// Screens
+$screen-xs: 0;
+$screen-sm: 480px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;

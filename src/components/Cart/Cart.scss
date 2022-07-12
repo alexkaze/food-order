@@ -1,0 +1,67 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.cart-items {
+  @include flex-col;
+  max-height: 30rem;
+  padding: 0 2rem;
+  background-color: $background-color-cartList;
+  border-radius: $border-radius-main;
+
+  list-style: none;
+  overflow: auto;
+}
+
+.cart-total {
+  @include flex-sb-c;
+  font-weight: weight(bold);
+  font-size: $font-size-cartTotal;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.cart-button {
+  font-weight: weight(bold);
+  padding: 0.8rem 3rem;
+  border: 0.1rem solid $color-tertiary;
+  border-radius: $border-radius-main;
+
+  &--close {
+    color: $color-tertiary;
+    background-color: transparent;
+
+    &:hover {
+      color: $color-secondary;
+      background-color: $color-buttonClose;
+      border-color: $color-buttonClose;
+    }
+  }
+
+  &--order {
+    color: $color-main;
+    background-color: $color-tertiary;
+
+    &:hover {
+      background-color: $color-tertiary--hover;
+      border-color: $color-tertiary--hover;
+    }
+  }
+}
+
+.submitting-text {
+  font-size: $font-size-h1;
+  font-weight: weight(semi-bold);
+  text-align: center;
+  color: $color-fourth;
+}
+
+.successful-text {
+  font-size: $font-size-h1;
+  font-weight: weight(semi-bold);
+  text-align: center;
+  color: $color-success;
+}
