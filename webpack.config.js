@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
     new ImageMinimizerPlugin({
       minimizer: {
         implementation: ImageMinimizerPlugin.imageminMinify,
-        options: { plugins: [['imagemin-mozjpeg', { quality: 50 }]] },
+        options: { plugins: [['imagemin-mozjpeg', { quality: 65 }]] },
       },
     }),
   ];
