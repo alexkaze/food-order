@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
     new ImageMinimizerPlugin({
       minimizer: {
         implementation: ImageMinimizerPlugin.imageminMinify,
-        options: { plugins: [['imagemin-mozjpeg', { quality: 65 }]] },
+        options: { plugins: [['webp', { quality: 50 }]] },
       },
     }),
   ];
@@ -54,7 +54,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
         type: 'asset/resource',
       },
       {

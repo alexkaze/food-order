@@ -3,7 +3,7 @@ import React from 'react';
 import './Header.scss';
 
 import HeaderButton from './HeaderButton';
-import foodImage from '../../assets/header-img.jpg';
+import foodImage from '../../assets/header-img.webp';
 
 const Header = ({ onDisplayCart }) => {
   return (
