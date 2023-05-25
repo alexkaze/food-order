@@ -1,38 +1,52 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-const mode =
-  process.env.NODE_ENV === 'production' ? 'production' : 'development';
+let mode = 'development';
+let target = 'web';
+let devtool = 'source-map';
+const optimization = {};
 
 const plugins = [
-  new MiniCssExtractPlugin(),
+  new MiniCssExtractPlugin({ filename: './css/[name].css' }),
   new HtmlWebpackPlugin({
     template: './src/index.html',
   }),
-  new ImageMinimizerPlugin({
-    minimizerOptions: {
-      plugins: [
-        ['gifsicle', { interlaced: true }],
-        ['jpegtran', { progressive: true }],
-        ['optipng', { optimizationLevel: 5 }],
-      ],
-    },
-  }),
 ];
+
+if (process.env.NODE_ENV === 'production') {
+  mode = 'production';
+  target = 'browserslist';
+  devtool = false;
+
+  optimization.minimize = true;
+  optimization.minimizer = [
+    new TerserPlugin({
+      test: /\.js(\?.*)?$/i,
+    }),
+    new ImageMinimizerPlugin({
+      minimizer: {
+        implementation: ImageMinimizerPlugin.imageminMinify,
+        options: { plugins: [['imagemin-mozjpeg', { quality: 50 }]] },
+      },
+    }),
+  ];
+}
 
 if (process.env.SERVE) plugins.push(new ReactRefreshWebpackPlugin());
 
 module.exports = {
-  mode: mode,
+  mode,
+  target,
 
   entry: './src/index.js',
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
+    filename: './js/[name].bundle.js',
     assetModuleFilename: 'images/[name][ext][query]',
     clean: true,
   },
@@ -62,9 +76,9 @@ module.exports = {
     ],
   },
 
-  plugins: plugins,
-
-  devtool: 'source-map',
+  plugins,
+  devtool,
+  optimization,
 
   resolve: {
     extensions: ['.js', '.jsx'],
