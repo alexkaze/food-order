@@ -24,7 +24,7 @@ https://food-ord.netlify.app/
 
 ## Installation and launch
 
-Clone the reprepository:
+Clone the repository:
 
 ```
 git clone https://github.com/alexkaze/food-order.git
